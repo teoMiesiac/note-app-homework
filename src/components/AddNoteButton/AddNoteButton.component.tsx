@@ -1,7 +1,11 @@
-import { Button } from '@chakra-ui/react'
+import { Button, ButtonProps } from '@chakra-ui/react'
 import { Plus } from 'components/Icons'
 
-const AddNoteButton = (): JSX.Element => {
+interface Props {
+  props: ButtonProps
+}
+
+const AddNoteButton = ({ props }: Props): JSX.Element => {
   return (
     <Button
       size="lg"
@@ -13,6 +17,7 @@ const AddNoteButton = (): JSX.Element => {
       height="60px"
       width="60px"
       border="2px"
+      {...props}
     >
       <Plus props={{ fill: 'white' }} />
     </Button>

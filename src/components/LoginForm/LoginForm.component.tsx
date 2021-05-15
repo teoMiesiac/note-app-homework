@@ -34,7 +34,7 @@ const LoginForm = (): JSX.Element => {
       maxWidth="360px"
       onSubmit={onSubmit}
     >
-      <Heading as="h1" color="teal" width="fit-content">
+      <Heading as="h1" color="teal.500" width="fit-content">
         Welcome
       </Heading>
       <UsernameInput

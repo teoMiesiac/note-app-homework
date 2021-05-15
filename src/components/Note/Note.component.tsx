@@ -10,12 +10,12 @@ const Note = ({ note }: Props): JSX.Element => (
   <>
     <Flex direction="column" alignItems="flex-start" width="100%" padding={1}>
       <Flex direction="row" width="100%" justifyContent="space-between" wrap="nowrap" alignItems="center">
-        <Text color="teal" isTruncated width="100%" display="inline-block">
+        <Text color="teal.500" isTruncated width="100%" display="inline-block">
           {note.text}
         </Text>
         <Spacer />
         <Button variant="ghost">
-          <Share props={{ fill: 'teal' }} />
+          <Share props={{ fill: 'teal.500' }} />
         </Button>
       </Flex>
       <Text color="red">Expiration time: {note.expirationTime}</Text>

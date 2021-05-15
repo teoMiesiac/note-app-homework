@@ -9,9 +9,9 @@ interface Props {
 
 const UsernameInput = ({ value, inputProps = {}, wrapperProps = {} }: Props): JSX.Element => (
   <InputGroup {...wrapperProps}>
-    <Input placeholder="Username" value={value} type="text" {...inputProps} />
+    <Input focusBorderColor="teal.500" placeholder="Username" value={value} type="text" {...inputProps} />
     <InputRightElement width="4.5rem">
-      <Account props={{ fill: 'teal' }} />
+      <Account props={{ fill: 'teal.500' }} />
     </InputRightElement>
   </InputGroup>
 )

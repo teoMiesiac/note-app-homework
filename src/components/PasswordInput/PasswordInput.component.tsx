@@ -14,7 +14,13 @@ const PasswordInput = ({ value, inputProps = {}, wrapperProps = {} }: Props): JS
 
   return (
     <InputGroup {...wrapperProps}>
-      <Input placeholder="Password" value={value} type={show ? 'text' : 'password'} {...inputProps} />
+      <Input
+        focusBorderColor="teal.500"
+        placeholder="Password"
+        value={value}
+        type={show ? 'text' : 'password'}
+        {...inputProps}
+      />
       <InputRightElement width="4.5rem">
         <Button colorScheme="teal" size="sm" variant="ghost" onClick={handleClick}>
           <ViewIcon />
