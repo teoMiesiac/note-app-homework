@@ -6,19 +6,21 @@ import { theme } from 'styles/theme'
 
 // Chakra automatically includes <CSSReset />, by default set to true
 
-const RootLayout = (): JSX.Element => (
-  <ChakraProvider theme={theme}>
-    <Router>
-      <Switch>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-      </Switch>
-    </Router>
-  </ChakraProvider>
-)
+const RootLayout = (): JSX.Element => {
+  return (
+    <ChakraProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </Router>
+    </ChakraProvider>
+  )
+}
 
 export default RootLayout
