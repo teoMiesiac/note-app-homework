@@ -14,6 +14,8 @@ const DateTimePicker = ({ startDate, onChange }: Props): JSX.Element => (
     onChange={onChange}
     dateFormat="d MMMM, yyyy h:mm aa"
     timeFormat="HH:mm"
+    required={true}
+    id="expireDate"
   />
 )
 

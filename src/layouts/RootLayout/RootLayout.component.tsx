@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Dashboard } from 'pages/Dashboard'
+import { Landing } from 'pages/Landing'
 import { Login } from 'pages/Login'
 import { theme } from 'styles/theme'
 
@@ -11,8 +12,8 @@ const RootLayout = (): JSX.Element => {
     <ChakraProvider theme={theme}>
       <Router>
         <Switch>
-          <Route path="/login">
-            <Login />
+          <Route exact path="/">
+            <Landing />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
