@@ -21,10 +21,9 @@ const PasswordModal = observer((): JSX.Element => {
   const {
     NotesStore: { getNote, loading, error, note },
   } = useDataStore()
+  const toast = useToast()
 
   useEffect(() => {
-    const toast = useToast()
-
     if (error) {
       toast({
         title: error,
@@ -32,7 +31,7 @@ const PasswordModal = observer((): JSX.Element => {
         status: 'error',
       })
     }
-  }, [error])
+  }, [error, toast])
 
   useEffect(() => {
     note && setIsModalOpen(false)
