@@ -6,7 +6,7 @@ class NotesStore {
   notesService: NotesService
   note: Note | null = null
   loading = false
-  urlToShare = ''
+  urlToShare: string | null = null
   error: null | string = null
 
   constructor() {
@@ -36,12 +36,12 @@ class NotesStore {
     this.error = error
   }
 
-  setUrlToShare = (url: string): void => {
-    this.urlToShare = window.location.href + 'note/' + url
+  setUrlToShare = (url: string | null): void => {
+    url ? (this.urlToShare = window.location.href + 'note/' + url) : (this.urlToShare = null)
   }
 
   postNote = async (note: Note) => {
-    this.setUrlToShare('')
+    this.setUrlToShare(null)
     this.setLoading(true)
     try {
       const { data } = await this.notesService.postNote(note)

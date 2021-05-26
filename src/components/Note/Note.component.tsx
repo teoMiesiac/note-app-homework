@@ -18,7 +18,7 @@ const Note = ({ note }: Props): JSX.Element => (
     >
       <Flex direction="column" width="100%" wrap="nowrap" alignItems="flex-start">
         <Heading as="h3" color="teal.500" textAlign="left">
-          Note content:
+          Note:
         </Heading>
         <Text color="teal.500" width="100%" display="inline-block" padding={2}>
           {note.text}

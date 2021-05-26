@@ -16,7 +16,7 @@ const NoteForm = observer((): JSX.Element => {
   } = useDataStore()
 
   useEffect(() => {
-    urlToShare !== '' && setIsModalOpen(true)
+    urlToShare !== null && setIsModalOpen(true)
   }, [urlToShare])
 
   const onTextChange = (event: FormEvent<HTMLTextAreaElement>): void => {

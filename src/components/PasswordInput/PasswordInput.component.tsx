@@ -21,7 +21,7 @@ const PasswordInput = ({ value, inputProps = {}, wrapperProps = {} }: Props): JS
         type={show ? 'text' : 'password'}
         {...inputProps}
       />
-      <InputRightElement width="4.5rem">
+      <InputRightElement>
         <Button colorScheme="teal" size="sm" variant="ghost" onClick={handleClick}>
           <ViewIcon />
         </Button>
