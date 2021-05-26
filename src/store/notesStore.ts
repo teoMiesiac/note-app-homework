@@ -1,4 +1,4 @@
-import { action, makeObservable, observable, runInAction } from 'mobx'
+import { action, makeObservable, observable } from 'mobx'
 import { Note } from 'models'
 import { NotesService } from 'services'
 
@@ -40,7 +40,7 @@ class NotesStore {
     url ? (this.urlToShare = window.location.href + 'note/' + url) : (this.urlToShare = null)
   }
 
-  postNote = async (note: Note) => {
+  postNote = async (note: Note): Promise<void> => {
     this.setUrlToShare(null)
     this.setLoading(true)
     try {
@@ -52,7 +52,7 @@ class NotesStore {
     this.setLoading(false)
   }
 
-  getNote = async (id: string, password: string) => {
+  getNote = async (id: string, password: string): Promise<void> => {
     this.setError(null)
     this.setLoading(true)
     try {

@@ -21,13 +21,10 @@ const PasswordModal = observer((): JSX.Element => {
   const {
     NotesStore: { getNote, loading, error, note },
   } = useDataStore()
-  const toast = useToast()
 
   useEffect(() => {
-    // open pswd modal
-  }, [id])
+    const toast = useToast()
 
-  useEffect(() => {
     if (error) {
       toast({
         title: error,
