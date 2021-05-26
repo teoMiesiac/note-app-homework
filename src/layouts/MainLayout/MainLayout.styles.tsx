@@ -7,4 +7,7 @@ interface MainProps {
 export const Main = styled.main<MainProps>`
   //height: 100vh;
   height: ${(props) => props.windowHeight}px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

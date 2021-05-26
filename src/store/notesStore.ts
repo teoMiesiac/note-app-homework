@@ -2,7 +2,7 @@ import { action, makeObservable, observable, runInAction } from 'mobx'
 import { Note } from 'models'
 import { NotesService } from 'services'
 
-class ApodStore {
+class NotesStore {
   notesService: NotesService
 
   loading = false
@@ -16,6 +16,7 @@ class ApodStore {
       urlToShare: observable,
       setLoading: action,
       postNote: action,
+      resetUrlToShare: action,
     })
   }
 
@@ -24,18 +25,24 @@ class ApodStore {
   }
 
   setUrlToShare = (url: string): void => {
-    this.urlToShare = url
+    this.urlToShare = window.location.href + url
+  }
+
+  resetUrlToShare = (): void => {
+    this.urlToShare = ''
   }
 
   postNote = async (note: Note) => {
+    this.resetUrlToShare()
     this.setLoading(true)
     try {
-      const data = await this.notesService.postNote(note)
-      // this.setUrlToShare(data)
+      const { data } = await this.notesService.postNote(note)
+      this.setUrlToShare(data.id)
     } catch (e) {
       console.log(e)
     }
+    this.setLoading(false)
   }
 }
 
-export { ApodStore }
+export { NotesStore }
