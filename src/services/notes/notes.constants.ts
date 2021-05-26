@@ -6,3 +6,10 @@ interface PostNoteData {
 export interface PostNoteResponse {
   data: PostNoteData
 }
+
+interface GetNoteData {
+  text: string
+}
+export interface GetNoteResponse {
+  data: GetNoteData
+}

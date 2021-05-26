@@ -24,11 +24,11 @@ const NoteForm = observer((): JSX.Element => {
   }
 
   const onPasswordChange = (event: FormEvent<HTMLInputElement>): void => {
-    setPassword(event.currentTarget.value.trim())
+    setPassword(event.currentTarget.value)
   }
 
   const isAnyFieldEmpty = (): boolean => {
-    return text === '' || password.length < 5 || expireDate === null
+    return text === '' || password === '' || expireDate === null
   }
 
   const onSubmit = (event: SyntheticEvent): void => {

@@ -5,6 +5,7 @@ import { NoteForm } from 'components/NoteForm'
 const Landing = (): JSX.Element => (
   <MainLayout>
     <Flex
+      as="section"
       direction="column"
       height="100%"
       width="100%"
