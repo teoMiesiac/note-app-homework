@@ -22,6 +22,9 @@ const PasswordModal = observer((): JSX.Element => {
     NotesStore: { getNote, loading, error, note },
   } = useDataStore()
   const toast = useToast()
+  const onSubmit = (): void => {
+    getNote(id, password)
+  }
 
   useEffect(() => {
     if (error) {
@@ -46,7 +49,7 @@ const PasswordModal = observer((): JSX.Element => {
   return (
     <Modal isOpen={isModalOpen} onClose={() => null} isCentered={true}>
       <ModalOverlay />
-      <ModalContent color="teal.500" margin={{ sm: 5, md: 10 }}>
+      <ModalContent color="teal.500" margin={{ sm: 5, md: 10 }} as="form" onSubmit={(e) => e.preventDefault()}>
         <ModalHeader>Someone shared note with you!</ModalHeader>
         <ModalBody>
           <PasswordInput
@@ -63,7 +66,7 @@ const PasswordModal = observer((): JSX.Element => {
             type="submit"
             colorScheme="teal"
             width="150px"
-            onClick={() => getNote(id, password)}
+            onClick={onSubmit}
             isLoading={loading}
             disabled={isSubmitDisabled()}
           >

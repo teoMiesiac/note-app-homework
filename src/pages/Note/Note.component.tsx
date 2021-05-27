@@ -1,6 +1,4 @@
-import { Flex, Text, Link } from '@chakra-ui/react'
-import { Link as RouterLink } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+import { Flex } from '@chakra-ui/react'
 import { observer } from 'mobx-react-lite'
 import { PasswordModal } from 'components/PasswordModal'
 import { useDataStore } from 'store/hooks'
@@ -9,7 +7,6 @@ import { CreateNoteHomeLink } from 'components/CreateNoteHomeLink'
 import { MainLayout } from 'layouts/MainLayout'
 
 const Note = observer((): JSX.Element => {
-  const history = useHistory()
   const {
     NotesStore: { note },
   } = useDataStore()
