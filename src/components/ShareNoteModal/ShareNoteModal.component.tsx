@@ -38,14 +38,7 @@ const ShareNoteModal = ({ isOpen, onClose, url }: Props): JSX.Element => {
         <ModalHeader>Share Note</ModalHeader>
         <ModalBody>
           <InputGroup>
-            <Input
-              value={url || ''}
-              size="md"
-              isReadOnly
-              focusBorderColor="teal.500"
-              isTruncated={true}
-              border="2px"
-            ></Input>
+            <Input value={url || ''} size="md" isReadOnly focusBorderColor="teal.500" border="2px"></Input>
             <InputRightElement>
               <CopyToClipboard text={url || ''} onCopy={onClick}>
                 <Button colorScheme="teal" size="sm" variant="ghost">

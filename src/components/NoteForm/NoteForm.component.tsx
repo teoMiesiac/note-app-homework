@@ -8,7 +8,7 @@ import { useDataStore } from 'store/hooks'
 
 const NoteForm = observer((): JSX.Element => {
   const [text, setText] = useState<string>('')
-  const [expireDate, setExpireDate] = useState<Date>(new Date(Date.now() + 3600 * 1000 * 24)) // Add one day in ms
+  const [expireDate, setExpireDate] = useState<Date>(new Date(Date.now() + 3600 * 1000)) // Add one hour in ms
   const [password, setPassword] = useState<string>('')
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const {
@@ -39,7 +39,7 @@ const NoteForm = observer((): JSX.Element => {
   const onModalClose = (): void => {
     setText('')
     setPassword('')
-    setExpireDate(new Date(Date.now() + 3600 * 1000 * 24))
+    setExpireDate(new Date(Date.now() + 3600 * 1000)) // Add one hour in ms
     setIsModalOpen(false)
   }
 

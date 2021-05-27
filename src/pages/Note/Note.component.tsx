@@ -1,11 +1,15 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, Text, Link } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 import { PasswordModal } from 'components/PasswordModal'
 import { useDataStore } from 'store/hooks'
 import { Note as NoteComponent } from 'components/Note'
+import { CreateNoteHomeLink } from 'components/CreateNoteHomeLink'
 import { MainLayout } from 'layouts/MainLayout'
 
 const Note = observer((): JSX.Element => {
+  const history = useHistory()
   const {
     NotesStore: { note },
   } = useDataStore()
@@ -22,7 +26,19 @@ const Note = observer((): JSX.Element => {
         padding={{ sm: 5, md: 10 }}
         maxWidth="1440px"
       >
-        {note && <NoteComponent note={note} />}
+        {note && (
+          <>
+            <NoteComponent note={note} />
+            <CreateNoteHomeLink
+              props={{
+                marginTop: '40px',
+                textAlign: 'left',
+                width: '450px',
+                padding: '10px',
+              }}
+            />
+          </>
+        )}
       </Flex>
       <PasswordModal />
     </MainLayout>

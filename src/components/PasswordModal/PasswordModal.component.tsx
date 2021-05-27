@@ -46,7 +46,7 @@ const PasswordModal = observer((): JSX.Element => {
   return (
     <Modal isOpen={isModalOpen} onClose={() => null} isCentered={true}>
       <ModalOverlay />
-      <ModalContent color="teal.500">
+      <ModalContent color="teal.500" margin={{ sm: 5, md: 10 }}>
         <ModalHeader>Someone shared note with you!</ModalHeader>
         <ModalBody>
           <PasswordInput
@@ -58,8 +58,9 @@ const PasswordModal = observer((): JSX.Element => {
             }}
           />
         </ModalBody>
-        <ModalFooter justifyContent="flex-start">
+        <ModalFooter flexDirection="column" alignItems="flex-start" justifyContent="flex-start">
           <Button
+            type="submit"
             colorScheme="teal"
             width="150px"
             onClick={() => getNote(id, password)}

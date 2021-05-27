@@ -8,6 +8,13 @@ interface Props {
   onChange: (date: Date) => void
 }
 
+const filterPassedTime = (time: Date) => {
+  const currentDate = new Date()
+  const selectedDate = new Date(time)
+
+  return currentDate.getTime() < selectedDate.getTime()
+}
+
 const DateTimePicker = ({ startDate, onChange }: Props): JSX.Element => (
   <DatePicker
     showTimeSelect
@@ -16,8 +23,9 @@ const DateTimePicker = ({ startDate, onChange }: Props): JSX.Element => (
     dateFormat="d MMMM, yyyy h:mm aa"
     timeFormat="HH:mm"
     required={true}
-    minDate={startDate}
+    minDate={new Date()}
     id="expireDate"
+    filterTime={filterPassedTime}
     calendarClassName="customCalendar"
     customInput={<Input required focusBorderColor="teal.500" id="expireDate" />}
   />
